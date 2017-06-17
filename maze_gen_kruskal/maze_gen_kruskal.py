@@ -107,7 +107,7 @@ def drawImage(name,l,w):
     #image.save('{}.png'.format(name),'PNG')
 
 if __name__=='__main__':
-    main(5,5)
+    main(100,100)
     if flag:
-        drawImage(101,5,5) #name of file,length,width
+        drawImage(101,100,100) #name of file,length,width
     
