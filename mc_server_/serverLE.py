@@ -9,7 +9,6 @@ from functions.uid_query import uid_query
 import socket
 import threading
 import sqlite3 as sql
-import uuid
 
 # Database
 db = sql.connect('liste1.db3', check_same_thread=False)
@@ -28,7 +27,8 @@ s.listen(5)
 
 def init_db():
     cursor.execute(
-        "CREATE TABLE IF NOT EXISTS participant_list (phoneNumber PRIMARY KEY,name,mail,school,department,grade,uid,counter INTEGER,control INTEGER)")
+        "CREATE TABLE IF NOT EXISTS participant_list (phoneNumber PRIMARY KEY\
+        ,name,mail,school,department,grade,uid,counter INTEGER,control INTEGER)")
     db.commit()
 
 
@@ -76,7 +76,7 @@ if __name__ == '__main__':
         print('started...')
         while True:
             cl, addr = s.accept()
-            print('[+]','[%s]' %addr[0])
+            print('[+]', '[%s]' % addr[0])
             cl_thread = threading.Thread(target=clHandler, args=(cl, addr[0]))
             cl_thread.start()
     finally:
