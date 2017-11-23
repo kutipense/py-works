@@ -62,7 +62,7 @@ def clHandler(sck, ip):
             sck.send(bytes(str(islem), encoding='utf-8'))
             print('[-] %s' % islem, address)
             db.commit()
-    except ConnectionResetError:
+    except:
         pass
     finally:
         print('[-]', address)
